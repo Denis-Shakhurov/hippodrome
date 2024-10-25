@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -62,10 +63,9 @@ public class HippodromeTest {
 
     @Test
     public void moveTest() {
-        List<Horse> horseList = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            horseList.add(Mockito.mock(Horse.class));
-        }
+        List<Horse> horseList = getListHorses(50).stream()
+                .map(horse -> Mockito.mock(Horse.class))
+                .collect(Collectors.toList());
 
         Hippodrome hippodrome = new Hippodrome(horseList);
 
