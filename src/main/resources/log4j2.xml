@@ -4,7 +4,7 @@
         <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}: %m%n</Property>
     </Properties>
 <Appenders>
-    <RollingFile name="RollingFile" fileName="logs/hippodrome.log" filePattern="logs/hippodrome.-%d{yyyy-MM-dd}-%i.log">
+    <RollingFile name="RollingFile" fileName="logs/hippodrome.log" filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log">
         <PatternLayout pattern="${LOG_PATTERN}"/>
         <Policies>
             <TimeBasedTriggeringPolicy />
