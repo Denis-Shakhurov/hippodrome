@@ -8,10 +8,9 @@
         <PatternLayout pattern="${LOG_PATTERN}"/>
         <Policies>
             <TimeBasedTriggeringPolicy />
-            <SizeBasedTriggeringPolicy size="250 MB"/>
         </Policies>
         <DefaultRolloverStrategy>
-            <Delete basePath="${logs.dir}" maxDepth="1">
+            <Delete basePath="logs/" maxDepth="1">
                 <IfFileName glob="hippodrome.*.log"/>
                 <IfLastModified age="P7D"/>
             </Delete>
