@@ -22,7 +22,7 @@ public class HorseTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Name cannot be null.");
+        assertEquals("Name cannot be null.", exception.getMessage());
     }
 
     @ParameterizedTest
@@ -35,7 +35,7 @@ public class HorseTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Name cannot be blank.");
+        assertEquals("Name cannot be blank.", exception.getMessage());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class HorseTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Speed cannot be negative.");
+        assertEquals("Speed cannot be negative.", exception.getMessage());
     }
 
     @Test
@@ -59,7 +59,27 @@ public class HorseTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Distance cannot be negative.");
+        assertEquals("Distance cannot be negative.", exception.getMessage());
+    }
+
+    @Test
+    public void createHorseWithSpeedAndDistanceNegativeTest() {
+        Throwable expected = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    Horse horse = new Horse("Star", -1.0, -3.0);
+                }
+        );
+    }
+
+    @Test
+    public void createHorseWithNameAndSpeedAndDistanceWrongValueTest() {
+        Throwable expected = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    Horse horse = new Horse("", -1.0, -3.0);
+                }
+        );
     }
 
     @Test
@@ -67,9 +87,9 @@ public class HorseTest {
         Horse horse = new Horse("Maya", 3.5, 23.4);
 
         assertAll("Equals object Horse",
-                () -> assertEquals(horse.getName(), "Maya"),
-                () -> assertEquals(horse.getSpeed(), 3.5),
-                () -> assertEquals(horse.getDistance(), 23.4));
+                () -> assertEquals("Maya", horse.getName()),
+                () -> assertEquals(3.5, horse.getSpeed()),
+                () -> assertEquals(23.4, horse.getDistance()));
     }
 
     @ParameterizedTest

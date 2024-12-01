@@ -38,7 +38,7 @@ public class HippodromeTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Horses cannot be null.");
+        assertEquals("Horses cannot be null.", exception.getMessage());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class HippodromeTest {
                 }
         );
 
-        assertEquals(exception.getMessage(), "Horses cannot be empty.");
+        assertEquals("Horses cannot be empty.", exception.getMessage());
     }
 
     @Test
